@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_interact/data/constants.dart';
 import 'package:flutter_interact/generated/i18n.dart';
+import 'package:flutter_interact/ui/common/app_header.dart';
 import 'package:flutter_interact/ui/common/index.dart';
 import 'package:flutter_interact/ui/feed/screen.dart';
 
@@ -40,8 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildTablet(BuildContext context) {
-    return Container(
-      child: Row(
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: AppHeader(),
+      ),
+      body: Row(
         children: <Widget>[
           SizedBox(
             width: kDrawerWidth,
@@ -87,6 +92,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildMobile(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: AppHeader(),
+      ),
       body: _buildStack(),
       bottomNavigationBar: BottomNavigationBar(
         onTap: _changeTab,
