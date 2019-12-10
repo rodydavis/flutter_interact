@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_interact/data/constants.dart';
 import 'package:flutter_interact/generated/i18n.dart';
+import 'package:flutter_interact/ui/common/index.dart';
 import 'package:flutter_interact/ui/feed/screen.dart';
-
-const kDrawerWidth = 320.0;
-const kTabletBreakpoint = 720.0;
-const kDesktopBeakpoint = 1200.0;
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/';
@@ -14,6 +12,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
+
+  List<Widget> screens = [
+    PostsScreen(),
+    Scaffold(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -74,10 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildStack() {
     return IndexedStack(
       index: _currentIndex,
-      children: <Widget>[
-        PostsScreen(),
-        Scaffold(),
-      ],
+      children: screens,
     );
   }
 
@@ -102,33 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class MenuTile extends StatelessWidget {
-  const MenuTile({
-    Key key,
-    @required this.index,
-    @required this.title,
-    @required this.icon,
-    @required this.onTap,
-    this.selected = false,
-  }) : super(key: key);
-
-  final int index;
-  final String title;
-  final Icon icon;
-  final ValueChanged<int> onTap;
-  final bool selected;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      selected: selected,
-      leading: icon,
-      title: Text(title),
-      onTap: () => onTap(index),
     );
   }
 }

@@ -8,4 +8,5 @@ class Post {
 
   String get id => snapshot.id;
   String get title => _json['title'].toString();
+  String get image => _json['image'].toString();
 }
