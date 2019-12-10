@@ -17,7 +17,7 @@ class AppHeader extends StatelessWidget {
         final _user = state is LoggedInState ? state.user : null;
         final _hasImage = _user?.photoUrl != null && _user.photoUrl.isNotEmpty;
         return Material(
-          elevation: 4.0,
+          elevation: 2.0,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
