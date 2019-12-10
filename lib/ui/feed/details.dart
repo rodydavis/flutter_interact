@@ -11,15 +11,13 @@ class PostDetailsScreen extends StatelessWidget {
     Key key,
     @required this.postId,
   }) : super(key: key);
+  DocumentReference get postDoc =>
+      GetIt.instance.get<Firestore>().collection("posts").doc(postId);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder<DocumentSnapshot>(
-          stream: GetIt.instance
-              .get<Firestore>()
-              .collection("posts")
-              .doc(postId)
-              .onSnapshot,
+          stream: postDoc.onSnapshot,
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return Center(

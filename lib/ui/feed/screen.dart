@@ -8,12 +8,13 @@ import 'details.dart';
 
 class PostsScreen extends StatelessWidget {
   static const String routeName = '/posts';
+  CollectionReference get postsCollection =>
+      GetIt.instance.get<Firestore>().collection('posts');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder<QuerySnapshot>(
-          stream:
-              GetIt.instance.get<Firestore>().collection('posts').onSnapshot,
+          stream: postsCollection.onSnapshot,
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return Center(

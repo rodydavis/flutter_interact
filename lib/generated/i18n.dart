@@ -38,6 +38,8 @@ class I18n implements WidgetsLocalizations {
   String get postsTitle => "Feed";
   /// "No Posts Found"
   String get postsPostsEmpty => "No Posts Found";
+  /// "QA"
+  String get qaTitle => "QA";
 }
 
 class _I18n_en_US extends I18n {

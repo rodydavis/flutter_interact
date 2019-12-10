@@ -3,5 +3,8 @@
     "posts": {
         "title": "Feed",
         "postsEmpty": "No Posts Found"
+    },
+    "qa": {
+        "title": "QA"
     }
 }
